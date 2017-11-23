@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PubNub</string>
+    <string name="app_name">Smart Desk</string>
     <string name="default_notification_channel_id">test_channel</string>
     <string name="preference_file">PubNubUserFile</string>
     <string name="title_activity_check_login">CheckLogin</string>

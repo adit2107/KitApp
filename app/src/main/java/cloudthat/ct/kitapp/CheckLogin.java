@@ -1,12 +1,13 @@
 package cloudthat.ct.kitapp;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-public class CheckLogin extends AppCompatActivity {
+public class CheckLogin extends Activity {
 
     public static final String PREFS_NAME = "PubNubUserFile";
 

@@ -1,5 +1,6 @@
 package cloudthat.ct.kitapp;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -36,7 +37,7 @@ import com.pubnub.api.models.consumer.push.PNPushAddChannelResult;
 
 import java.util.Arrays;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
     public static final String PREFS_NAME = "PubNubUserFile";
 
     String refreshedToken = FirebaseInstanceId.getInstance().getToken();
