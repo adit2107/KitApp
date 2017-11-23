@@ -15,6 +15,7 @@ import android.widget.ToggleButton;
 import android.support.v7.widget.Toolbar;
 
 import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.gson.JsonObject;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
@@ -145,16 +146,29 @@ public class MainActivity extends Activity {
 
 
     private void primeAlarm() {
-        String prime = "{'state':'O'}";
-        sendMessage(prime);
+        try {
+            JsonObject primeObj = new JsonObject();
+            primeObj.addProperty("state", "O");
+            Log.i("primeObject", String.valueOf(primeObj));
+            sendMessage(primeObj);
+        }catch(Exception e){
+            Log.i("primeObject", "Exception: " + e);
+        }
+
     }
 
     private void unPrimeAlarm() {
-        String unPrime = "{'state':'F'}";
-        sendMessage(unPrime);
+        try {
+            JsonObject unprimeObj = new JsonObject();
+            unprimeObj.addProperty("state", "F");
+            Log.i("primeObject", String.valueOf(unprimeObj));
+            sendMessage(unprimeObj);
+        }catch(Exception e){
+            Log.i("primeObject", "Exception: " + e);
+        }
     }
 
-    private void sendMessage(String msg) { //not using configVar; will do that later
+    private void sendMessage(JsonObject msgObj) { //not using configVar; will do that later
         PNConfiguration pnConfiguration = new PNConfiguration();
         SharedPreferences sharedPref = this.getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         Log.i("Preferences", "Bagged SharedPreferences File");
@@ -167,7 +181,7 @@ public class MainActivity extends Activity {
         pnConfiguration.setSubscribeKey(subKey);
         PubNub pubnub = new PubNub(pnConfiguration);
         Log.i("PubNub", "PubNub Set up!");
-        pubnub.publish().channel("test_channel2").message(msg).async(new PNCallback<PNPublishResult>() {
+        pubnub.publish().channel("test_channel2").message(msgObj).async(new PNCallback<PNPublishResult>() {
             @Override
             public void onResponse(PNPublishResult result, PNStatus status) {
                 // Check whether request successfully completed or not.
