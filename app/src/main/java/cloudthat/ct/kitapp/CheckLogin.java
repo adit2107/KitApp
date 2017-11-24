@@ -24,7 +24,7 @@ public class CheckLogin extends Activity {
 
         if(username != "default"){
             Intent intent = new Intent(this, MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             finish();
             startActivity(intent);
         }else{

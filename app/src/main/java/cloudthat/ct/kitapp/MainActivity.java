@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import android.support.v7.widget.Toolbar;
@@ -112,30 +113,20 @@ public class MainActivity extends Activity {
                 })
                 .build();
 
-
-        /*
-        submitButton.setOnClickListener(new View.OnClickListener() {
-        public void onClick(View v) {
-        SharedPreferences.Editor editor = sharedpreferences.edit();
-        Intent intent = new Intent(MainActivity.this, DisplayMessageActivity.class);
-        editor.putString("pubkey", String.valueOf(pubKeyField.getText()));
-        Log.i("Preferences", "pubkey is " + String.valueOf(pubKeyField.getText()));
-        editor.apply();
-        startActivity(intent);
-        }
-        });
-        */
-
         final ToggleButton toggle = (ToggleButton)findViewById(R.id.toggleButton3);
         toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
                 if (isChecked) {
+                    Toast.makeText(MainActivity.this, "Desk activated.", Toast.LENGTH_SHORT).show();
                     // The toggle is enabled
                     Log.i("PubNub", "Checked!");
                     primeAlarm();
 
                 } else {
                     // The toggle is disabled
+                    Toast.makeText(MainActivity.this, "Desk deactivated.", Toast.LENGTH_SHORT).show();
+
                     Log.i("PubNub", "Unchecked!");
                     unPrimeAlarm();
                 }
@@ -279,5 +270,8 @@ public class MainActivity extends Activity {
         pubnub.subscribe().channels(Arrays.asList("test_channel")).execute();
     }
 
-
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+    }
 }
