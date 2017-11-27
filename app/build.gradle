@@ -36,6 +36,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     compile 'com.pubnub:pubnub-gson:4.15.0'
 
+    compile 'com.github.Cielsk:clearable-edittext:0.0.3'
+
     implementation "com.android.support:design:26.1.0"
 
 

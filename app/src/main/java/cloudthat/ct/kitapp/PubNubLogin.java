@@ -3,6 +3,7 @@ package cloudthat.ct.kitapp;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,9 +22,21 @@ public class PubNubLogin extends AppCompatActivity {
         sharedpreferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 
         Button submitButton = findViewById(R.id.submitButton);
-        final EditText pubKeyField = findViewById(R.id.editText);
-        final EditText subKeyField = findViewById(R.id.editText2);
-        final EditText usernameField = findViewById(R.id.editText3);
+        final EditText pubKeyField = findViewById(R.id.pubField);
+        final EditText subKeyField = findViewById(R.id.subField);
+        final EditText usernameField = findViewById(R.id.nameField);
+
+
+
+        final TextInputLayout usernameWrapper = (TextInputLayout) findViewById(R.id.usernameWrapper);
+        final TextInputLayout subkeyWrapper = (TextInputLayout) findViewById(R.id.subKeyWrapper);
+        final TextInputLayout pubkeyWrapper = (TextInputLayout) findViewById(R.id.pubKeyWrapper);
+
+        usernameWrapper.setHint("Enter username");
+        subkeyWrapper.setHint("Enter subscribe key");
+        pubkeyWrapper.setHint("Enter publish key");
+
+
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
