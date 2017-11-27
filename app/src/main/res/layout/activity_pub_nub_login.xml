@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login2"
+    android:background="#ffffff"
     android:focusable="true"
     android:focusableInTouchMode="true"
     tools:context="cloudthat.ct.kitapp.PubNubLogin">
@@ -15,10 +15,10 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
-        android:background="@color/md_white_1000"
+        android:background="@color/colorPrimaryDark"
         android:text="login"
         android:textAppearance="@android:style/TextAppearance.Material.Widget.Button"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/md_white_1000"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -35,7 +35,7 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ctlogowhite" />
+        app:srcCompat="@drawable/ctlogo" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/pubKeyWrapper"
@@ -51,12 +51,11 @@
 
         <com.cielyang.android.clearableedittext.ClearableEditText
             android:id="@+id/pubField"
-            android:textColor="@color/md_white_1000"
+
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:hint="Enter publish key"
-            android:textColorHint="@color/md_white_1000"
-            android:backgroundTint="@color/md_white_1000"/>
+            />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
