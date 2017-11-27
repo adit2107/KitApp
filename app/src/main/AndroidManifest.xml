@@ -30,6 +30,12 @@
             </intent-filter>
         </service>
 
+        <service android:name=".NotificationService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
         <activity android:name=".DisplayMessageActivity" />
         <activity android:name=".PubNubLogin" />
         <activity android:name=".CheckLogin"
