@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF"
+    android:background="#fff"
     android:focusable="true"
     android:focusableInTouchMode="true"
     tools:context="cloudthat.ct.kitapp.PubNubLogin">
@@ -14,8 +14,8 @@
         style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:background="@color/md_blue_900"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/btndesign"
         android:text="login"
         android:textAppearance="@android:style/TextAppearance.Material.Widget.Button"
         android:textColor="@color/md_white_1000"
@@ -26,12 +26,13 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="228dp"
-        android:layout_height="133dp"
+        android:layout_width="262dp"
+        android:layout_height="149dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="72dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ctlogo" />
@@ -42,16 +43,16 @@
         android:layout_height="60dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView">
 
-        <android.support.design.widget.TextInputEditText
+        <com.cielyang.android.clearableedittext.ClearableEditText
             android:id="@+id/pubField"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
             android:hint="Enter publish key" />
     </android.support.design.widget.TextInputLayout>
 
@@ -61,16 +62,16 @@
         android:layout_height="60dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pubKeyWrapper">
 
-        <android.support.design.widget.TextInputEditText
+        <com.cielyang.android.clearableedittext.ClearableEditText
             android:id="@+id/subField"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
             android:hint="Enter subscribe key" />
     </android.support.design.widget.TextInputLayout>
 
@@ -85,9 +86,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/subKeyWrapper">
 
-        <android.support.design.widget.TextInputEditText
+        <com.cielyang.android.clearableedittext.ClearableEditText
             android:id="@+id/nameField"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:hint="Enter username" />
     </android.support.design.widget.TextInputLayout>
