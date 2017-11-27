@@ -4,5 +4,6 @@
     <string name="preference_file">PubNubUserFile</string>
     <string name="title_activity_check_login">CheckLogin</string>
     <string name="drawer_item_settings">Edit login details</string>
-    <string name="drawer_item_about">About Us</string>
+    <string name="drawer_item_about">About us</string>
+    <string name="about_us_text">Incorporated in March 2012, CloudThat is the first company in India to provide Cloud Training and Consulting services for mid market and enterprise clients around the world. With expertise in major Cloud platforms including Amazon Web Services and Microsoft Azure, CloudThat is uniquely positioned to be the single technology source for organizations looking to utilize the flexibility and power Cloud Computing provides.</string>
 </resources>

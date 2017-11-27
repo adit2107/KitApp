@@ -52,6 +52,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         TextView nameDisp = findViewById(R.id.name);
+
         SharedPreferences sharedPref = this.getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
 
         String nameDisplay = sharedPref.getString("username","default");
@@ -84,8 +85,8 @@ public class MainActivity extends Activity {
                 .addDrawerItems(
                         settings,
                         about
-
                 )
+                .withSelectedItem(-1)
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
@@ -107,8 +108,7 @@ public class MainActivity extends Activity {
                           }
                       }
 
-
-                        return true;
+                      return true;
                     }
                 })
                 .build();

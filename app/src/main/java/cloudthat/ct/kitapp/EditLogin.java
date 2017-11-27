@@ -44,8 +44,14 @@ public class EditLogin extends AppCompatActivity {
                 Log.i("NewPreferences", "username is " + String.valueOf(usernameField.getText()));
                 editor.apply();
                 startActivity(intent);
-                finish();
             }
         });
+    }
+    @Override
+    public void onBackPressed() {
+        // INTENT FOR YOUR HOME ACTIVITY
+        Intent intent = new Intent(EditLogin.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
