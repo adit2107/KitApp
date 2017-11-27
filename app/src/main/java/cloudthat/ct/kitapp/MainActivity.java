@@ -17,6 +17,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.gson.JsonObject;
+import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
@@ -63,7 +64,6 @@ public class MainActivity extends Activity {
                 .withActivity(this)
                 .withHeaderBackground(R.drawable.header)
                 .addProfiles(
-
                 )
                 .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
                     @Override
@@ -73,8 +73,8 @@ public class MainActivity extends Activity {
                 })
                 .build();
 
-        PrimaryDrawerItem settings = new PrimaryDrawerItem().withIdentifier(1).withName(R.string.drawer_item_settings);
-        PrimaryDrawerItem about  = new PrimaryDrawerItem().withIdentifier(2).withName(R.string.drawer_item_about);
+        PrimaryDrawerItem settings = new PrimaryDrawerItem().withIdentifier(1).withName(R.string.drawer_item_settings).withIcon(FontAwesome.Icon.faw_pencil_square_o);
+        PrimaryDrawerItem about  = new PrimaryDrawerItem().withIdentifier(2).withName(R.string.drawer_item_about).withIcon(FontAwesome.Icon.faw_info);
 
 //create the drawer and remember the `Drawer` result object
         Drawer result = new DrawerBuilder()
