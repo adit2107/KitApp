@@ -26,8 +26,6 @@ public class PubNubLogin extends AppCompatActivity {
         final EditText subKeyField = findViewById(R.id.subField);
         final EditText usernameField = findViewById(R.id.nameField);
 
-
-
         final TextInputLayout usernameWrapper = (TextInputLayout) findViewById(R.id.usernameWrapper);
         final TextInputLayout subkeyWrapper = (TextInputLayout) findViewById(R.id.subKeyWrapper);
         final TextInputLayout pubkeyWrapper = (TextInputLayout) findViewById(R.id.pubKeyWrapper);
@@ -35,8 +33,6 @@ public class PubNubLogin extends AppCompatActivity {
         usernameWrapper.setHint("Enter username");
         subkeyWrapper.setHint("Enter subscribe key");
         pubkeyWrapper.setHint("Enter publish key");
-
-
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

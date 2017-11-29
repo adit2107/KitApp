@@ -15,7 +15,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/ctColor"
         android:text="login"
         android:textAppearance="@android:style/TextAppearance.Material.Widget.Button"
         android:textColor="@color/md_white_1000"
@@ -54,8 +54,7 @@
 
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:hint="Enter publish key"
-            />
+            android:hint="Enter publish key" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -72,7 +71,7 @@
 
         <com.cielyang.android.clearableedittext.ClearableEditText
             android:id="@+id/subField"
-            android:layout_width="300dp"
+            android:layout_width="800dp"
             android:layout_height="wrap_content"
             android:hint="Enter subscribe key" />
     </android.support.design.widget.TextInputLayout>
@@ -91,7 +90,7 @@
         <com.cielyang.android.clearableedittext.ClearableEditText
             android:id="@+id/nameField"
             android:layout_width="300dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:hint="Enter username" />
     </android.support.design.widget.TextInputLayout>
 
