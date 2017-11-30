@@ -11,15 +11,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.firebase.iid.FirebaseInstanceId;
+
 public class PubNubLogin extends AppCompatActivity {
     public static final String PREFS_NAME = "PubNubUserFile";
     SharedPreferences sharedpreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pub_nub_login);
 
-        sharedpreferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        sharedpreferences = getBaseContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 
         Button submitButton = findViewById(R.id.submitButton);
         final EditText pubKeyField = findViewById(R.id.pubField);
@@ -41,9 +44,11 @@ public class PubNubLogin extends AppCompatActivity {
                 editor.putString("pubkey", String.valueOf(pubKeyField.getText()));
                 editor.putString("subkey", String.valueOf(subKeyField.getText()));
                 editor.putString("username", String.valueOf(usernameField.getText()));
-                Log.i("Preferences", "pubkey is " + String.valueOf(pubKeyField.getText()));
-                Log.i("Preferences", "subkey is " + String.valueOf(subKeyField.getText()));
-                Log.i("Preferences", "username is " + String.valueOf(usernameField.getText()));
+                //editor.putString("fcmtoken", refreshedToken);
+                Log.i("PreferencesLogin", "pubkey is " + String.valueOf(pubKeyField.getText()));
+                Log.i("PreferencesLogin", "subkey is " + String.valueOf(subKeyField.getText()));
+                Log.i("PreferencesLogin", "username is " + String.valueOf(usernameField.getText()));
+                //Log.i("PreferencesLogin", "fcmtoken is " + refreshedToken);
                 editor.apply();
                 startActivity(intent);
                 finish();

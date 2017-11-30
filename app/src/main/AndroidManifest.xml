@@ -29,16 +29,16 @@
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
-
         <service android:name=".NotificationService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 
         <activity android:name=".DisplayMessageActivity" />
         <activity android:name=".PubNubLogin" />
-        <activity android:name=".CheckLogin"
+        <activity
+            android:name=".CheckLogin"
             android:theme="@android:style/Theme.NoDisplay">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -47,7 +47,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".AboutUs" />
-        <activity android:name=".EditLogin"></activity>
+        <activity android:name=".EditLogin" />
     </application>
 
 </manifest>

@@ -13,9 +13,8 @@ public class CheckLogin extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        SharedPreferences sharedPref = this.getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        SharedPreferences sharedPref = getBaseContext().getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         String username = sharedPref.getString("username","default");
-
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_login);

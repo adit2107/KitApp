@@ -44,7 +44,6 @@ public class MainActivity extends Activity {
     public static final String PREFS_NAME = "PubNubUserFile";
 
     String refreshedToken = FirebaseInstanceId.getInstance().getToken();
-
     // importing Toolbar for nav drawer
     android.support.v7.widget.Toolbar toolbar;
     @Override
@@ -161,13 +160,13 @@ public class MainActivity extends Activity {
 
     private void sendMessage(JsonObject msgObj) { //not using configVar; will do that later
         PNConfiguration pnConfiguration = new PNConfiguration();
-        SharedPreferences sharedPref = this.getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        SharedPreferences sharedPref = getBaseContext().getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         Log.i("Preferences", "Bagged SharedPreferences File");
         String pubKey = sharedPref.getString("pubkey","default");
         String subKey = sharedPref.getString("subkey","default");
-        Log.i("Preferences", "Pub Key from preferences: " + pubKey);
-        Log.i("Preferences", "Sub Key from preferences: " + subKey);
-        Log.i("Preferences", String.valueOf(sharedPref.getAll()));
+        Log.i("PreferencesMain", "Pub Key from preferences: " + pubKey);
+        Log.i("PreferencesMain", "Sub Key from preferences: " + subKey);
+        Log.i("PreferencesMain", String.valueOf(sharedPref.getAll()));
         pnConfiguration.setPublishKey(pubKey);
         pnConfiguration.setSubscribeKey(subKey);
         PubNub pubnub = new PubNub(pnConfiguration);

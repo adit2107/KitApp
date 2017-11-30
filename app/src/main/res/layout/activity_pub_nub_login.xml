@@ -51,7 +51,7 @@
 
         <com.cielyang.android.clearableedittext.ClearableEditText
             android:id="@+id/pubField"
-
+            android:importantForAutofill="noExcludeDescendants"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:hint="Enter publish key" />
@@ -71,7 +71,8 @@
 
         <com.cielyang.android.clearableedittext.ClearableEditText
             android:id="@+id/subField"
-            android:layout_width="800dp"
+            android:importantForAutofill="noExcludeDescendants"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:hint="Enter subscribe key" />
     </android.support.design.widget.TextInputLayout>
@@ -89,6 +90,7 @@
 
         <com.cielyang.android.clearableedittext.ClearableEditText
             android:id="@+id/nameField"
+            android:importantForAutofill="noExcludeDescendants"
             android:layout_width="300dp"
             android:layout_height="match_parent"
             android:hint="Enter username" />
