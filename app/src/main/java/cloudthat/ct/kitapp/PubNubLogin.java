@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 
@@ -50,6 +51,7 @@ public class PubNubLogin extends AppCompatActivity {
                 Log.i("PreferencesLogin", "username is " + String.valueOf(usernameField.getText()));
                 //Log.i("PreferencesLogin", "fcmtoken is " + refreshedToken);
                 editor.apply();
+                Toast.makeText(PubNubLogin.this, "Logged in.",Toast.LENGTH_LONG).show();
                 startActivity(intent);
                 finish();
             }
