@@ -13,6 +13,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.gson.JsonObject;
+import com.pubnub.api.PNConfiguration;
+import com.pubnub.api.PubNub;
+import com.pubnub.api.callbacks.PNCallback;
+import com.pubnub.api.models.consumer.PNPublishResult;
+import com.pubnub.api.models.consumer.PNStatus;
 
 public class PubNubLogin extends AppCompatActivity {
     public static final String PREFS_NAME = "PubNubUserFile";
@@ -51,9 +57,39 @@ public class PubNubLogin extends AppCompatActivity {
                 Log.i("PreferencesLogin", "username is " + String.valueOf(usernameField.getText()));
                 //Log.i("PreferencesLogin", "fcmtoken is " + refreshedToken);
                 editor.apply();
+                sendTokenToPubNub();
                 Toast.makeText(PubNubLogin.this, "Logged in.",Toast.LENGTH_LONG).show();
                 startActivity(intent);
                 finish();
+            }
+        });
+    }
+
+    private void sendTokenToPubNub() {
+       sharedpreferences = getBaseContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        String pubKey = sharedpreferences.getString("pubkey","default");
+        String subKey = sharedpreferences.getString("subkey","default");
+        String fcmtoken = sharedpreferences.getString("fcmtoken","default");
+        PNConfiguration pnConfiguration = new PNConfiguration();
+        pnConfiguration.setPublishKey(pubKey);
+        pnConfiguration.setSubscribeKey(subKey);
+        PubNub pubnub = new PubNub(pnConfiguration);
+
+        Log.i("PreferencesLogin", fcmtoken);
+
+        pubnub.publish().channel("test_channel3").message(fcmtoken).async(new PNCallback<PNPublishResult>() {
+            @Override
+            public void onResponse(PNPublishResult result, PNStatus status) {
+                // Check whether request successfully completed or not.
+                if (!status.isError()) {
+                    Log.i("FireToken", String.valueOf(status.getStatusCode()));
+                    Log.i("FireToken", status.getCategory().toString());
+                    // Message successfully published to specified channel.
+                } else {
+                    Log.i("FireToken", String.valueOf(status.getStatusCode()));
+                    Log.i("FireToken", status.getCategory().toString());
+                    Log.i("FireToken", status.getErrorData().toString());
+                }
             }
         });
     }

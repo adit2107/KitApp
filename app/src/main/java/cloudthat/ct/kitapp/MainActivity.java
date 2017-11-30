@@ -52,9 +52,9 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         TextView nameDisp = findViewById(R.id.name);
 
-        SharedPreferences sharedPref = this.getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        SharedPreferences sharedPreferences = this.getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
 
-        String nameDisplay = sharedPref.getString("username","default");
+        String nameDisplay = sharedPreferences.getString("username","default");
 
         nameDisp.setText(nameDisplay);
 
@@ -161,7 +161,6 @@ public class MainActivity extends Activity {
     private void sendMessage(JsonObject msgObj) { //not using configVar; will do that later
         PNConfiguration pnConfiguration = new PNConfiguration();
         SharedPreferences sharedPref = getBaseContext().getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
-        Log.i("Preferences", "Bagged SharedPreferences File");
         String pubKey = sharedPref.getString("pubkey","default");
         String subKey = sharedPref.getString("subkey","default");
         Log.i("PreferencesMain", "Pub Key from preferences: " + pubKey);
