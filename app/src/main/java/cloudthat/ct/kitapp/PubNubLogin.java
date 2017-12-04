@@ -66,7 +66,7 @@ public class PubNubLogin extends AppCompatActivity {
     }
 
     private void sendTokenToPubNub() {
-       sharedpreferences = getBaseContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        sharedpreferences = getBaseContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         String pubKey = sharedpreferences.getString("pubkey","default");
         String subKey = sharedpreferences.getString("subkey","default");
         String fcmtoken = sharedpreferences.getString("fcmtoken","default");

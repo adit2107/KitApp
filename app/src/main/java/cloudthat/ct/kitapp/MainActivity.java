@@ -42,7 +42,7 @@ import java.util.Arrays;
 
 public class MainActivity extends Activity {
     public static final String PREFS_NAME = "PubNubUserFile";
-
+    SharedPreferences sharedPreferences;
     String refreshedToken = FirebaseInstanceId.getInstance().getToken();
     // importing Toolbar for nav drawer
     android.support.v7.widget.Toolbar toolbar;
@@ -52,7 +52,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         TextView nameDisp = findViewById(R.id.name);
 
-        SharedPreferences sharedPreferences = this.getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        sharedPreferences = getBaseContext().getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
 
         String nameDisplay = sharedPreferences.getString("username","default");
 
