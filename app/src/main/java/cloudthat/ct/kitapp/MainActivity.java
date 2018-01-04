@@ -44,6 +44,7 @@ public class MainActivity extends Activity {
     public static final String PREFS_NAME = "PubNubUserFile";
     SharedPreferences sharedPreferences;
     String refreshedToken = FirebaseInstanceId.getInstance().getToken();
+    private static long back_pressed;
     // importing Toolbar for nav drawer
     android.support.v7.widget.Toolbar toolbar;
     @Override
@@ -270,6 +271,10 @@ public class MainActivity extends Activity {
 
     @Override
     public void onBackPressed() {
-        moveTaskToBack(true);
+        if (back_pressed + 2000 > System.currentTimeMillis()) moveTaskToBack(true); //super.onBackPressed();
+        else Toast.makeText(getBaseContext(), "Press once again to exit.", Toast.LENGTH_SHORT).show();
+        back_pressed = System.currentTimeMillis();
+
+        //moveTaskToBack(true);
     }
 }

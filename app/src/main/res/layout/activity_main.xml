@@ -8,12 +8,11 @@
     tools:layout_editor_absoluteY="81dp">
 
     <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarMain"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
-        android:id="@+id/toolbarMain"
         android:background="@color/ctColor"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        >
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <TextView
             android:layout_width="wrap_content"
@@ -24,22 +23,23 @@
             tools:layout_editor_absoluteY="19dp" />
     </android.support.v7.widget.Toolbar>
 
-
     <ToggleButton
         android:id="@+id/toggleButton3"
-        android:layout_width="77dp"
-        android:layout_height="45dp"
+        android:layout_width="100dp"
+        android:layout_height="56dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="148dp"
         android:checked="false"
         android:text="ToggleButton"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.382" />
+        app:layout_constraintVertical_bias="0.525" />
 
     <TextView
         android:id="@+id/textView5"
@@ -49,14 +49,14 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Prime desk"
+        android:text="Prime SmartDesk"
         android:textAppearance="@android:style/TextAppearance.Holo.Medium"
         app:layout_constraintBottom_toTopOf="@+id/toggleButton3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+        app:layout_constraintVertical_bias="0.985" />
 
     <TextView
         android:id="@+id/welcome"
@@ -64,7 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="56dp"
         android:text="Welcome"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,9 +83,9 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcome"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.018" />
 
 </android.support.constraint.ConstraintLayout>
