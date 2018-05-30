@@ -19,9 +19,9 @@ public class AboutUs extends AppCompatActivity {
                 .isRTL(false)
                 .setImage(R.drawable.ctlogo)
                 .setDescription("Incorporated in March 2012, CloudThat is the first company in India to provide Cloud Training and Consulting services for mid market and enterprise clients around the world. With expertise in major Cloud platforms including Amazon Web Services and Microsoft Azure, CloudThat is uniquely positioned to be the single technology source for organizations looking to utilize the flexibility and power Cloud Computing provides.")
-                .addItem(new Element().setTitle("Version 1.0.0"))
+                .addItem(new Element().setTitle("Version 1.0.2"))
                 .addWebsite("https://cloudthat.in/")
-                .addPlayStore("")
+                .addPlayStore("https://play.google.com/store/apps/details?id=cloudthat.ct.kitapp")
                 .create();
 
         setContentView(aboutPage);

@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -44,25 +45,48 @@ public class PubNubLogin extends AppCompatActivity {
         subkeyWrapper.setHint("Enter subscribe key");
         pubkeyWrapper.setHint("Enter publish key");
 
-        submitButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                SharedPreferences.Editor editor = sharedpreferences.edit();
-                Intent intent = new Intent(PubNubLogin.this, MainActivity.class);
-                editor.putString("pubkey", String.valueOf(pubKeyField.getText()));
-                editor.putString("subkey", String.valueOf(subKeyField.getText()));
-                editor.putString("username", String.valueOf(usernameField.getText()));
-                //editor.putString("fcmtoken", refreshedToken);
-                Log.i("PreferencesLogin", "pubkey is " + String.valueOf(pubKeyField.getText()));
-                Log.i("PreferencesLogin", "subkey is " + String.valueOf(subKeyField.getText()));
-                Log.i("PreferencesLogin", "username is " + String.valueOf(usernameField.getText()));
-                //Log.i("PreferencesLogin", "fcmtoken is " + refreshedToken);
-                editor.apply();
-                sendTokenToPubNub();
-                Toast.makeText(PubNubLogin.this, "Logged in.",Toast.LENGTH_LONG).show();
-                startActivity(intent);
-                finish();
-            }
-        });
+//        if( TextUtils.isEmpty(pubKeyField.getText())){
+//            Toast.makeText(PubNubLogin.this, "Please enter your Pub key.",Toast.LENGTH_LONG).show();
+//            pubKeyField.setError( "Pub key is required!" );
+//        }else if (TextUtils.isEmpty(subKeyField.getText())){
+//            Toast.makeText(PubNubLogin.this, "Please enter your Sub key.",Toast.LENGTH_LONG).show();
+//            pubKeyField.setError( "Sub key is required!" );
+//        }else if(TextUtils.isEmpty(usernameField.getText())){
+//            Toast.makeText(PubNubLogin.this, "Please enter a username.",Toast.LENGTH_LONG).show();
+//            pubKeyField.setError( "Username is required!" );
+//        }
+
+            submitButton.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    SharedPreferences.Editor editor = sharedpreferences.edit();
+                    Intent intent = new Intent(PubNubLogin.this, MainActivity.class);
+                    editor.putString("pubkey", String.valueOf(pubKeyField.getText()));
+                    editor.putString("subkey", String.valueOf(subKeyField.getText()));
+                    editor.putString("username", String.valueOf(usernameField.getText()));
+                    //editor.putString("fcmtoken", refreshedToken);
+                    Log.i("PreferencesLogin", "pubkey is " + String.valueOf(pubKeyField.getText()));
+                    Log.i("PreferencesLogin", "subkey is " + String.valueOf(subKeyField.getText()));
+                    Log.i("PreferencesLogin", "username is " + String.valueOf(usernameField.getText()));
+                    //Log.i("PreferencesLogin", "fcmtoken is " + refreshedToken);
+                    if( TextUtils.isEmpty(pubKeyField.getText())){
+                        Toast.makeText(PubNubLogin.this, "Please enter your Pub key.",Toast.LENGTH_LONG).show();
+                        //pubKeyField.setError( "Pub key is required!" );
+                    }else if (TextUtils.isEmpty(subKeyField.getText())){
+                        Toast.makeText(PubNubLogin.this, "Please enter your Sub key.",Toast.LENGTH_LONG).show();
+                        //pubKeyField.setError( "Sub key is required!" );
+                    }else if(TextUtils.isEmpty(usernameField.getText())){
+                        Toast.makeText(PubNubLogin.this, "Please enter a username.",Toast.LENGTH_LONG).show();
+                        //pubKeyField.setError( "Username is required!" );
+                    }else {
+                        editor.apply();
+                        sendTokenToPubNub();
+                        Toast.makeText(PubNubLogin.this, "Logged in.", Toast.LENGTH_LONG).show();
+                        startActivity(intent);
+                        finish();
+                    }
+                }
+            });
+
     }
 
     private void sendTokenToPubNub() {
